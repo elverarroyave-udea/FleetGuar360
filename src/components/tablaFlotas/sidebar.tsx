@@ -2,13 +2,13 @@
 
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
-import { ChevronLeft, ChevronRight, LayoutDashboard, Truck } from "lucide-react"
+import { ChevronLeft, ChevronRight, LayoutDashboard, MapIcon, Truck } from "lucide-react"
 
 interface SidebarProps {
   open: boolean
   setOpen: (open: boolean) => void
-  activeItem: "dashboard" | "fleet"
-  onItemClick: (item: "dashboard" | "fleet") => void
+  activeItem: "dashboard" | "fleet" | "map"
+  onItemClick: (item: "dashboard" | "fleet" | "map") => void
 }
 
 export function Sidebar({ open, setOpen, activeItem, onItemClick }: SidebarProps) {
@@ -46,6 +46,17 @@ export function Sidebar({ open, setOpen, activeItem, onItemClick }: SidebarProps
         {/* Navegación */}
         <nav className="mt-6 flex flex-1 flex-col px-2">
           <div className="space-y-2">
+            <Button
+              variant="ghost"
+              className={cn(
+                "w-full justify-start text-white hover:bg-white/10",
+                activeItem === "map" && "bg-white/10",
+              )}
+              onClick={() => onItemClick("map")}
+            >
+              <MapIcon className="mr-2 h-5 w-5" />
+              Mapa en tiempo real
+            </Button>
             <Button
               variant="ghost"
               className={cn(

@@ -7,8 +7,8 @@ import { Sidebar } from "./sidebar"
 
 interface MainLayoutProps {
   children: React.ReactNode
-  activeView: "dashboard" | "fleet"
-  onViewChange: (view: "dashboard" | "fleet") => void
+  activeView: "dashboard" | "fleet" | "map"
+  onViewChange: (view: "dashboard" | "fleet" | "map") => void
 }
 
 export function MainLayout({ children, activeView, onViewChange }: MainLayoutProps) {
